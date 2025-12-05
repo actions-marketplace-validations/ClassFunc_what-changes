@@ -19,12 +19,24 @@ inputs:
   output-type:
     description: "output type"
     required: false
-    default: 'html'
+    default: 'md'
+  pr-title:
+    description: "pull request title"
+    required: false
+    default: '${{ github.event.pull_request.title }}'
 
 # Define your outputs here.
 outputs:
   value:
     description: 'value of var `output-type` field'
+  total:
+    description: 'total number of changes'
+  numOfMerged:
+    description: 'number of merged pull requests'
+  numOfHotfix:
+    description: 'number of hotfix commits'
+  summary:
+    description: 'summary of changes'
 
 runs:
   using: node20
